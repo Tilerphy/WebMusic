@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <link rel="stylesheet" href="~/Content/themes/smoothness/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="~/Content/basicPlayer.css" />
+    <script type="text/javascript" src="~/Scripts/musicUI.js"></script>
+    <script type="text/javascript">
+        var SelectedMusicID = "@ViewBag.MusicId";
+        var SharingSaltId = "@ViewBag.SaltId";
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            function initialOthers() {
+
+                initialControlEvent();
+                selectedMusic(SelectedMusicID, function (result)
+                {
+                    if (result)
+                    {
+                        document.title = "FM8.9 ["+decodeURIComponent( result.MusicFileName)+"]";
+                    }
+
+                    
+
+                    $.get("/api/SaltApi/GetSalt?id=" + SharingSaltId).complete(function (result) {
+                        if (result.readyState == 4) {
+                            document.title += " shared by: " + JSON.parse(result.responseText).NickName;
+                        }
+                    });
+                    
+                });
+
+                //Img.start("backgroupIcon");
+                
+            }
+
+            initialUI();
+            $(".MusicUI .InfoAndControl .Control .NextControl").button({ disabled: true });
+            $(".MusicUI .Requests .List .ListButton").button({disabled: true});
+            $("#neverPlayButton").button().unbind("click").click(function ()
+            {
+
+                    $.get("/api/Music/SetNeverPlay?musicId=" + MusicContext.currentMusicId).complete(function (result) {
+                        if (result.readyState == 4) {
+                            if (parseInt(result.responseText) > 0) {
+                                window.location = "/";
+                            }
+                        }
+                    });
+            });
+
+            initialBase(initialOthers);
+            SystemContext.loopType = LoopType.SingleMusicLoop;
+            
+
+        });
+
+    </script>
+    <title>FM8.9</title>
+</head>
+<body>
+  <div>
+        <audio preload="metadata" id="musicControl">
+            <div>Please use a browser supports HTML5.</div>
+        </audio>
+    </div>
+    <div id="MusicUI" class="MusicUI">
+        <div class="Icon">
+            <img id="backgroupIcon" class="IconImg" src="~/Content/themes/base/images/nullimg.png"/>
+        </div>
+        <div class="InfoAndControl">
+            <div class="MusicName">
+                <font class="MusicNameContent">Every Day（每天）</font>
+
+                <div class="Time">
+                    <font class="TimeContent">00:00</font>
+                </div>
+                <div class="MusicProgressbar"></div>
+            </div>
+            <div class="Control">
+                <button class="SeekPrevControl">
+                </button>
+                <button class="PlayControl">
+                </button>
+                <button class="SeekNextControl">
+                </button>
+                <button class="NextControl">
+                </button>
+                <div class="Voice">
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="Requests"> 
+            <div class="Share">
+                <button id="shareButton" class="ShareButton">享</button>
+            </div>
+            <div class="Download">
+                <button id="DownloadButton" class="DownloadButton">↓</button>
+            </div>
+            <div class="NeverPlay">
+                <button id="neverPlayButton" class="NeverPlayButton">>.<</button>
+            </div>
+            <div class="List">
+                <button id="listButton" class="ListButton">列</button>
+            </div>
+        </div>
+        <div id="loadingDialog" style="display:none">
+            <div id="loadingProgress"></div>
+        </div>
+    </div>
+
+
+    <div id="dialog"  style="display:none">
+        <p id="dialogContent">Content</p>
+    </div>
+
+    <input  type="text" id="sharedUrl" style="display:none; width:450px"/>
+    <div id="DownloadDialog" title="Download" style="display:none">
+        <iframe src=""></iframe>
+    </div>
+    <div class="LoadingMark">
+        <div class="ProgressBar"></div>
+    </div>
+</body>
+</html>

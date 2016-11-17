@@ -1,0 +1,115 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <link rel="stylesheet" href="~/Content/themes/smoothness/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="~/Content/basicPlayer.css" />
+    <script type="text/javascript" src="~/Scripts/musicUI.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            function initialOthers() {
+
+                initialControlEvent();
+                randomMusic();
+                //Img.start("backgroupIcon");
+            }
+
+            initialUI();
+            initialBase(initialOthers);
+        });
+
+    </script>
+    <title>FM8.9 2014 Alpha 0.1</title>
+    
+</head>
+<body>
+    <div>
+        <audio preload="metadata" id="musicControl">
+            <div>Please use a browser supports HTML5.</div>
+        </audio>
+    </div>
+    <div id="MusicUI" class="MusicUI">
+        <div class="Icon">
+            <img id="backgroupIcon" class="IconImg" src="~/Content/themes/base/images/nullimg.png"/>
+        </div>
+        <div class="InfoAndControl">
+            <div class="MusicName">
+                <font class="MusicNameContent">Every Day（每天）</font>
+                <div class="Time">
+                    <font class="TimeContent">00:00</font>
+                </div>
+                <div class="MusicProgressbar"></div>
+            </div>
+            <div class="Control">
+                <button class="SeekPrevControl">
+                </button>
+                <button class="PlayControl">
+                </button>
+                <button class="SeekNextControl">
+                </button>
+                <button class="NextControl">
+                </button>
+                <div class="Voice">
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="Requests"> 
+            <div class="Share">
+                <button id="shareButton" class="ShareButton">享</button>
+            </div>
+            <div class="Download">
+                <button id="DownloadButton" class="DownloadButton">↓</button>
+            </div>
+            <div class="NeverPlay">
+                <button id="neverPlayButton" class="NeverPlayButton">>.<</button>
+            </div>
+            <div class="List">
+                <button id="listButton" class="ListButton">列</button>
+            </div>
+        </div>
+        <div id="loadingDialog" style="display:none">
+            <div id="loadingProgress"></div>
+        </div>
+    </div>
+
+
+    <div id="dialog"  style="display:none">
+        <p id="dialogContent">Content</p>
+    </div>
+
+    <input  type="text" id="sharedUrl" style="display:none; width:450px"/>
+    <div id="UploadDialog" title="Download" style="display:none">
+        <iframe src=""></iframe>
+    </div>
+    <div class="LoadingMark">
+        <div class="ProgressBar"></div>
+    </div>
+
+    <div id="musicList" style="display:none">
+        <div id="selections">
+            <input type="radio" id="listenedCount" name="radio" checked="checked"><label for="listenedCount">听过最多</label>
+            <input type="radio" id="createdTime" name="radio"><label for="createdTime">最新上传</label>
+            <input type="radio" id="sharedListenedCount" name="radio"><label for="sharedListenedCount">分享最多</label>
+        </div>
+        <div id="musicNameList">
+
+        </div>
+        <div class="pagerControl">
+            <button id="prevPage">上一页</button>
+            <input id="pageSize" type="text" value="0"/>
+            <button id="nextPage">下一页</button>
+        </div>
+    </div>
+</body>
+</html>

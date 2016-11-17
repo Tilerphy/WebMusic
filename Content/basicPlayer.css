@@ -1,0 +1,254 @@
+﻿
+        .ui-dialog .ui-dialog-titlebar {
+            display:none;
+        }
+        .ui-dialog .ui-dialog-titlebar-close{
+            display:none;
+        }
+
+.MusicListItem {
+    margin-top:8px;
+}
+
+.pagerControl {
+ margin-top:8px;
+ position:absolute;
+ right:5px;
+ bottom : 5%;
+}
+
+.MusicListItemLink:link {text-decoration: none;}
+.MusicListItemLink:visited {text-decoration: none;}
+.MusicListItemLink:active {text-decoration: none;}
+.MusicListItemLink:hover 
+{
+    text-decoration: none;
+    color:red
+}
+        .MusicUI {
+            height:200px;
+            width:450px;
+            background-color:black
+        }
+            .MusicUI .Icon {
+                float:left;
+                margin-bottom:10px;
+                margin-left:5px;
+                margin-top:7px;
+                background-color:transparent;
+                width:170px;
+                height:170px;
+            }
+
+            .MusicUI .Icon .IconImg {
+                margin-bottom:10px;
+                margin-left:5px;
+                margin-top:7px;
+                width:170px;
+                height:170px;
+            }
+            .MusicUI .InfoAndControl {
+                float:right;
+                margin-bottom:10px;
+                margin-right:10px;
+                margin-top:10px;
+                background-color:darkgray;
+                width:250px;
+                height:130px;
+            }
+                .MusicUI .InfoAndControl .MusicName {
+                    float:left;
+                    margin-bottom:5px;
+                    margin-left:5px;
+                    margin-top:5px;
+                    background-color:black;
+                    width:240px;
+                    height:80px;
+                }
+                .MusicUI .InfoAndControl .MusicName .MusicNameContent {
+                    float:left;
+                    margin-left:5px;
+                    background-color:black;
+                    width:220px;
+                    height:50px;
+                    font-size:12px;
+                    font-family:'Microsoft YaHei';
+                    color:white;
+                    overflow:hidden;
+                }
+
+                .MusicUI .InfoAndControl .MusicName .MusicProgressbar{
+                    float:left;
+                    margin-left:10px;
+                    width:220px;
+                    height:5px;
+                }
+                .MusicUI .InfoAndControl .MusicName .Time {
+                    float:right;
+                    margin-bottom:5px;
+                    background-color:transparent;
+                    width:65px;
+                    height:12px;
+                }
+
+                .MusicUI .InfoAndControl .MusicName .Time .TimeContent {
+                    float:left;
+                    margin-bottom:6px;
+                    margin-left:2px;
+                    background-color:transparent;
+                    width:70px;
+                    height:12px;
+                    text-align:center;
+                    font-size:10px;
+                    font-family:'Microsoft YaHei';
+                    color:white
+                }
+
+                    .MusicUI .InfoAndControl .MusicName .MusicProgressbar .ui-progressbar-value{ 
+                        background-color:darkgrey 
+                    } 
+
+               
+
+                .MusicUI .InfoAndControl .Control {
+                    float:left;
+                    margin-top:5px;
+                    margin-left:5px;
+                    background-color:transparent;
+                    width:235px;
+                    height:70px;
+                }
+                .MusicUI .InfoAndControl .Control .Voice {
+                    float:right;
+                    margin-top:12px;
+                    margin-bottom:10px;
+                    background-color:grey;
+                    width:80px;
+                    height:5px
+                }
+                .MusicUI .InfoAndControl .Control .ui-slider .ui-slider-handle {
+                   width: 0.8em; 
+                   height: 0.8em;
+                }
+                .MusicUI .InfoAndControl .Control .VoiceLabel {
+                    float:left;
+                    margin-top:6px;
+                    margin-left:5px;
+                    background-color:transparent;
+                    font-size:12px;
+                    color:black;
+                    height:20px;
+                }
+                .MusicUI .InfoAndControl .Control .PlayControl{
+                    float:left;
+                    margin-top:2px;
+                    margin-bottom:2px;
+                    margin-left:2px;
+                    background-color:transparent;
+                    width:26px;
+                    height:26px;
+                }
+
+                .MusicUI .InfoAndControl .Control .SeekPrevControl{
+                    float:left;
+                    margin-top:2px;
+                    margin-bottom:2px;
+                    margin-left:2px;
+                    background-color:transparent;
+                    width:26px;
+                    height:26px;
+                }
+
+                .MusicUI .InfoAndControl .Control .SeekNextControl{
+                    float:left;
+                    margin-top:2px;
+                    margin-bottom:2px;
+                    margin-left:2px;
+                    background-color:transparent;
+                    width:26px;
+                    height:26px;
+                }
+
+                .MusicUI .InfoAndControl .Control .NextControl{
+                    float:left;
+                    margin-top:2px;
+                    margin-bottom:2px;
+                    margin-left:2px;
+                    background-color:transparent;
+                    width:26px;
+                    height:26px;
+                }
+                
+            .MusicUI .Requests {
+                float:right;
+                margin-bottom:10px;
+                margin-right:10px;
+                background-color:darkgray;
+                width:250px;
+                height:40px;
+            }
+
+                .MusicUI .Requests .NeverPlay {
+                    float:left;
+                    margin-bottom:5px;
+                    margin-left:5px;
+                    margin-top:5px;
+                    background-color:transparent;
+                    width:55px;
+                    height:30px;
+                }
+
+                .MusicUI .Requests .List {
+                    float:left;
+                    margin-bottom:5px;
+                    margin-left:5px;
+                    margin-top:5px;
+                    background-color:transparent;
+                    width:55px;
+                    height:30px;
+                }
+
+                .MusicUI .Requests .Share {
+                    float:left;
+                    margin-bottom:5px;
+                    margin-left:8px;
+                    margin-top:5px;
+                    background-color:transparent;
+                    width:55px;
+                    height:30px;
+                }
+
+                .MusicUI .Requests .Download {
+                    float:left;
+                    margin-bottom:5px;
+                    margin-left:5px;
+                    margin-top:5px;
+                    background-color:transparent;
+                    width:55px;
+                    height:30px;
+                }
+                .MusicUI .Requests .Share .ShareButton {
+                    width:55px;
+                    height:30px;
+                    font-size:12px
+                }
+
+                .MusicUI .Requests .NeverPlay .NeverPlayButton {
+                    width:55px;
+                    height:30px;
+                     font-size:12px
+                }
+                .MusicUI .Requests .List .ListButton {
+                    width:55px;
+                    height:30px;
+                     font-size:12px
+                }
+                .MusicUI .Requests .Download .DownloadButton {
+                    width:55px;
+                    height:30px;
+                     font-size:12px
+                }
+
+                #loadingProgress .ui-progressbar-value {
+                    background-color: #ccc;
+                }

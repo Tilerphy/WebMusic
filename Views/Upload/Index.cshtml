@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+    <script type="text/javascript">
+        function submitForm()
+        {
+            var form =document.getElementById("form1");
+            form.action = "/Upload/Go?uniqueNewName=" + document.getElementById("musicFile").files[0].name;
+            form.submit();
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form id="form1" action="~/Upload/Go"  method="post" enctype="multipart/form-data"> 
+            <input id="musicFile" name="musicFile" type="file" runat="server"/>
+            <input type="submit"  value="Upload" onclick="return submitForm()"/>
+        </form>
+    </div>
+</body>
+</html>
